@@ -1,0 +1,8 @@
+{
+  "name": "cpp-generator",
+  "version": "1.0.0",
+  "description": "Simple C++ generator of custom start project",
+  "main": "index.js",
+  "author": "Marcus Welander",
+  "license": "MIT"
+}
