@@ -1,0 +1,107 @@
+openapi: "3.0.1"
+info:
+  title: vcpkg-rest API overview
+  version: 0.1.0
+servers:
+  - url: http://localhost:8080/
+paths:
+  /packages:
+    get:
+      operationId: getPackages
+      summary: Return all available vcpkg packages
+      parameters:
+      - in: query
+        name: name
+        description: The name of the package
+        schema:
+          type: string
+      - in: query
+        name: platforms
+        description: Must support the supplied platforms
+        schema:
+          type: array
+          items:
+            type: string
+            enum: 
+              - windows
+              - unix
+      responses:
+        '200':
+          description: |-
+            200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: Name of the packages
+                  version:
+                    type: string
+                    description: Version of the package
+                  platforms:
+                    type: array
+                    items:
+                      type: string
+                      enum: 
+                        - windows
+                        - unix
+                  cmake:
+                    type: object
+                    properties:
+                      findPackage:
+                        type: string
+                      linkPackage:
+                        type: string
+              examples:
+                packages:
+                  value: |
+                    [
+                      {
+                        "name": "magic-enum",
+                        "version": "0.7.3",
+                        "platforms": ["windows", "unix"],
+                        "cmake": {
+                          "findPackage": "find_package(magic_enum CONFIG REQUIRED)",
+                          "linkPackage": "target_link_libraries(main PRIVATE magic_enum::magic_enum)"
+                        }
+                      }
+                    ]
+        '203':
+          description: |-
+            203 response
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                error:
+                  value:
+                    {
+                      "error": "Something went wrong"
+                    }
+  /starter-zip:
+    get:
+      operationId: getStarterZip
+      summary: Return starter zip
+      parameters:
+      - in: query
+        name: name
+        description: The name of the package
+        schema:
+          type: string
+      responses:
+        '200':
+          description: |-
+            200 response
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+
+
+#components:
+  
+
