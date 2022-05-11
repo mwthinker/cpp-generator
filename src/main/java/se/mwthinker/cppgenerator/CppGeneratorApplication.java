@@ -4,9 +4,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackageClasses = {
+@ComponentScan(
+	basePackageClasses = {
 		se.mwthinker.openapi.api.PackagesApiController.class,
-		se.mwthinker.cppgenerator.service.PackagesApiDelegateImpl.class} )
+		se.mwthinker.cppgenerator.service.PackagesApiDelegateImpl.class,
+		se.mwthinker.openapi.api.StarterZipApiController.class,
+		se.mwthinker.openapi.api.StarterZipApiDelegate.class
+	}
+)
 @SpringBootApplication
 public class CppGeneratorApplication {
 
