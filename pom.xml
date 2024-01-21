@@ -60,6 +60,7 @@
 
 	<build>
 		<plugins>
+			<!-- Used to build and run the Spring Boot application. -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -67,6 +68,8 @@
 					<mainClass>se.mwthinker.cppgenerator.CppGeneratorApplication</mainClass>
 				</configuration>
 			</plugin>
+
+			<!-- Used to generate code from an OpenAPI specification using the Spring generator. It generates Java code for the API and model classes. -->
 			<plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
@@ -78,30 +81,33 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<inputSpec>
-								${project.basedir}/src/main/resources/restApi.yaml
-							</inputSpec>
+							<inputSpec>${project.basedir}/src/main/resources/restApi.yaml</inputSpec>
 							<generatorName>spring</generatorName>
 							<apiPackage>se.mwthinker.openapi.api</apiPackage>
 							<modelPackage>se.mwthinker.openapi.model</modelPackage>
-							<supportingFilesToGenerate>
-								ApiUtil.java
-							</supportingFilesToGenerate>
+							<supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
 							<configOptions>
 								<delegatePattern>true</delegatePattern>
 								<useSpringBoot3>true</useSpringBoot3>
 							</configOptions>
 						</configuration>
 					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Used to generate TypeScript code from an OpenAPI specification using the TypeScript Angular generator. It generates code for the API and model classes. -->
+			<plugin>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+				<version>7.2.0</version>
+				<executions>
 					<execution>
 						<id>generate typescript OpenAPI</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<inputSpec>
-								${project.basedir}/src/main/resources/restApi.yaml
-							</inputSpec>
+							<inputSpec>${project.basedir}/src/main/resources/restApi.yaml</inputSpec>
 							<generatorName>typescript-angular</generatorName>
 							<output>${project.basedir}/rest-api</output>
 							<configOptions>
@@ -115,6 +121,8 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- Used to manage frontend dependencies and build the frontend code. It installs Node.js and npm, and runs npm commands for building the frontend. -->
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
@@ -153,6 +161,8 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- Used to copy the built Vue.js frontend resources to the output directory of the Maven build. -->
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.3.1</version>
