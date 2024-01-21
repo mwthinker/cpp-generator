@@ -4,7 +4,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.NativeWebRequest;
 import se.mwthinker.openapi.api.PackagesApiDelegate;
-import se.mwthinker.openapi.model.InlineResponse200;
+import se.mwthinker.openapi.model.GetPackages200Response;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +24,7 @@ public class PackagesApiDelegateImpl implements PackagesApiDelegate {
     }
 
     @Override
-    public ResponseEntity<InlineResponse200> getPackages(String name, List<String> platforms) {
+    public ResponseEntity<GetPackages200Response> getPackages(String name, List<String> platforms) {
         return PackagesApiDelegate.super.getPackages(name, platforms);
     }
 }
