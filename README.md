@@ -1,4 +1,4 @@
-# cpp-generator [![CI build](https://github.com/mwthinker/cpp-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/mwthinker/cpp-generator/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/mwthinker/cpp-generator/graph/badge.svg?token=T6CE5XBPEQ)](https://codecov.io/gh/mwthinker/cpp-generator) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# cpp-generator [![CI build](https://github.com/mwthinker/cpp-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/mwthinker/cpp-generator/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/mwthinker/cpp-generator/graph/badge.svg?token=AXPMDCRSGC)](https://codecov.io/gh/mwthinker/cpp-generator) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 A java spring-boot application based on JDK 21 and maven. Create a singe page vue3 page to generate c++ template project, similiar to https://start.spring.io/.
 
 ## Developer enviroment
@@ -17,7 +17,7 @@ java -jar target/cpp-generator-0.0.1-SNAPSHOT.jar
 ```
 
 ## How to run frontend locally
-Frontend code is found in [src/vueapp/.](src/vueapp/.). Recomended is to use the same version of node and npm that is specified in [./pom.xml].
+Frontend code is found in [src/vueapp/.](src/vueapp/.). Recomended is to use the same version of node and npm that is specified in (pom.xml)[./pom.xml].
 
 Commands are defined in [package.json](./src/vueapp/package.json) under "scripts".
 
